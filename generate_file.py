@@ -14,7 +14,7 @@ def main():
 
     with open("./server/mydata.txt", "rb") as f:
         print( hash := hashlib.md5(f.read()).hexdigest())
-    with open("./checksum.txt", "w") as f:
+    with open("./server/checksum.txt", "w") as f:
         f.write(hash)
 
 if __name__ == "__main__":
