@@ -27,7 +27,8 @@ if hashlib.md5(str.encode(file_text)).hexdigest() == checksum:
     # Write file if checksum matches
     with open("mydata_client_copy.txt", "w") as f:
         f.write(file_text)
-    print("File has been downloaded, validated, and saved.")
+    # File has been downloaded, validated, and saved. The file's contents are
+    print(file_text)
 else:
     print("Downloaded file did not match the checksome and was discarded.")
 
