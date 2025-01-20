@@ -22,7 +22,8 @@ except Exception as e:
     raise e
 
 # Compare file against checksum
-if hashlib.md5(str.encode(file_text)).hexdigest() == checksum:
+downloaded_checksum = hashlib.md5(str.encode(file_text)).hexdigest()
+if downloaded_checksum == checksum:
 
     # Write file if checksum matches
     with open("mydata_client_copy.txt", "w") as f:
@@ -31,5 +32,7 @@ if hashlib.md5(str.encode(file_text)).hexdigest() == checksum:
     print(file_text)
 else:
     print("Downloaded file did not match the checksome and was discarded.")
+    print(f"Target MD5 checksum: {checksum}")
+    print(f"Downloaded file's MD5 checksum: {downloaded_checksum}")
 
 
